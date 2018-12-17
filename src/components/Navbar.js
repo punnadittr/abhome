@@ -17,11 +17,14 @@ const styles = {
   },
   whiteText: {
     color: '#fff',
-    fontSize: '1.2rem'
+    fontSize: '1.3rem'
+  },
+  submitBtn: {
+    padding: '0 15px'
   }
 };
 
-function Navbar(props) {
+const Navbar = props => {
   const { classes } = props;
   return (
     <div className={classes.root}>
@@ -29,13 +32,18 @@ function Navbar(props) {
         <Toolbar>
           <img src="ablogo.png" alt="ablogo" width="100px" />
           <div className={classes.grow} />
-          <Button variant="outlined" color="secondary">
-            <Typography className={classes.whiteText}> ลงประกาศฟรี</Typography>
+          <Button
+            mini
+            variant="outlined"
+            color="secondary"
+            className={classes.submitBtn}
+          >
+            <Typography className={classes.whiteText}> ลงประกาศ</Typography>
           </Button>
         </Toolbar>
       </AppBar>
     </div>
   );
-}
+};
 
 export default withStyles(styles)(Navbar);

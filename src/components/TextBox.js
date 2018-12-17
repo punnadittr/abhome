@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import MainText from './MainText';
@@ -18,56 +18,41 @@ const styles = () => ({
   }
 });
 
-class TextBox extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      typing: true
-    };
-  }
-
-  done = () => {
-    this.setState({ typing: false }, () => {
-      this.setState({ typing: true });
-    });
-  };
-
-  render() {
-    const { classes, windowWidth } = this.props;
-    return (
-      <div
-        style={{
-          minHeight: '100vh',
-          display: 'flex',
-          position: 'relative',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
+const TextBox = props => {
+  const { classes, windowWidth } = props;
+  return (
+    <div
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        position: 'relative',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    >
+      <Typography
+        gutterBottom
+        className={classes.textWhite}
+        variant="h2"
+        color="textSecondary"
+        align="center"
       >
-        <Typography
-          gutterBottom
-          className={classes.textWhite}
-          variant="h2"
-          color="textSecondary"
-          align="center"
-        >
-          <MainText windowWidth={windowWidth} />
-        </Typography>
-        <br />
-        <SubtitleText />
-        <Button
-          size="large"
-          variant="contained"
-          color="secondary"
-          className={classes.actionBtn}
-        >
-          ฝากขายอสังหาฯ
-        </Button>
-        <FooterGraphic />
-      </div>
-    );
-  }
-}
+        <MainText windowWidth={windowWidth} />
+      </Typography>
+      <br />
+      <SubtitleText />
+      <Button
+        size="large"
+        variant="contained"
+        color="secondary"
+        className={classes.actionBtn}
+      >
+        ฝากขายอสังหาฯ
+      </Button>
+      <FooterGraphic />
+    </div>
+  );
+};
 
 export default withStyles(styles)(TextBox);

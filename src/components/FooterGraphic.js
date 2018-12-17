@@ -5,7 +5,7 @@ const FooterGraphic = () => {
   return (
     <img
       alt="footerGraphics"
-      style={{ position: 'absolute', bottom: '0' }}
+      style={{ position: 'absolute', bottom: '2rem' }}
       src={footergraphic}
     />
   );
